@@ -5,14 +5,10 @@ class Solution {
         while( right < s.length() ){
             char c=s.charAt(right);
             Integer in=hm.get(c);
-            if(in!=null  ){
-                //left = Math.max( left, in+1  );
-                left=left>in+1?left:in+1;
-            }
-            hm.put(c ,right);
-            int diff=right-left;
-            len=len>diff?len:diff+1;
-            //len = Math.max(len, right-left+1);
+            if(in!=null  )
+                left = Math.max( left, in+1  );
+            hm.put(c , right);
+            len = Math.max(len, right-left+1);
             right++;
         }        
         return len;
